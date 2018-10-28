@@ -4,6 +4,9 @@ version = "0.1.0.5"
 description = "Simple SRS (spaced-recognition system) mechanism and database"
 authors = ["Pacharapol Withayasakpunt <patarapolw@gmail.com>"]
 readme = "README.md"
+repository = "https://github.com/patarapolw/simplesrs"
+homepage = "https://github.com/patarapolw/simplesrs"
+keywords = ["srs", "spaced-repetition"]
 
 [tool.poetry.dependencies]
 python = "*"
