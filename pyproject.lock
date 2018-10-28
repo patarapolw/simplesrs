@@ -1,0 +1,26 @@
+[[package]]
+category = "main"
+description = "a little orm"
+name = "peewee"
+optional = false
+platform = "any"
+python-versions = "*"
+version = "3.7.1"
+
+[[package]]
+category = "main"
+description = "Time expression parser"
+name = "pytimeparse"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "1.1.8"
+
+[metadata]
+content-hash = "3ff56fdcf0bec0db0297654675e70316abc0a8148fe35a129829c207af349d02"
+platform = "*"
+python-versions = "*"
+
+[metadata.hashes]
+peewee = ["a91c3ccff43ab71f08196aba1d17dd2548079744d54adc33d511db1c30b446ba"]
+pytimeparse = ["04b7be6cc8bd9f5647a6325444926c3ac34ee6bc7e69da4367ba282f076036bd", "e86136477be924d7e670646a98561957e8ca7308d44841e21f5ddea757556a0a"]

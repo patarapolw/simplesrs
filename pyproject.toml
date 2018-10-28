@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "simplesrs"
+version = "0.1.0.5"
+description = "Simple SRS (spaced-recognition system) mechanism and database"
+authors = ["Pacharapol Withayasakpunt <patarapolw@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "*"
+peewee = "^3.7"
+
+[tool.poetry.dev-dependencies]
