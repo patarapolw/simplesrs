@@ -21,7 +21,9 @@ Simple SRS (spaced-recognition system) mechanism and database. Scalable and zero
         'strong))] I need to go do important things immediately.'
 }
 >>> card.right()  # Mark as right, and next review by now() + srs_level's timedelta()
+>>> card.undo()  # Undo marking as right.
 >>> card.wrong()  # Mark as wrong, and bury for default: 10 minutes.
+>>> card.undo()
 >>> card.bury()  # Bury for default: 4 hours
 ```
 

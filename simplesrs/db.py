@@ -1,6 +1,6 @@
 import peewee as pv
 from playhouse import sqlite_ext
-from playhouse.shortcuts import model_to_dict
+from playhouse.shortcuts import model_to_dict, dict_to_model
 
 from datetime import datetime, timedelta
 import random
@@ -56,6 +56,8 @@ class Card(BaseModel):
     next_review = pv.DateTimeField(null=True)
     tags = pv.ManyToManyField(Tag, backref='cards', on_delete='cascade')
 
+    backup = None
+
     def __repr__(self):
         return self.item
 
@@ -76,6 +78,9 @@ class Card(BaseModel):
         Tag.get_or_create(name=tag)[0].notes.remove(self)
 
     def right(self):
+        if not self.backup:
+            self.backup = model_to_dict(self)
+
         if not self.srs_level:
             self.srs_level = 0
         else:
@@ -92,6 +97,9 @@ class Card(BaseModel):
     correct = next_srs = right
 
     def wrong(self, next_review=timedelta(minutes=10)):
+        if not self.backup:
+            self.backup = model_to_dict(self)
+
         if self.srs_level and self.srs_level > 0:
             self.srs_level = self.srs_level - 1
 
@@ -100,11 +108,18 @@ class Card(BaseModel):
     incorrect = previous_srs = wrong
 
     def bury(self, next_review=timedelta(hours=4)):
+        if not self.backup:
+            self.backup = model_to_dict(self)
+
         if isinstance(next_review, timedelta):
             self.next_review = datetime.now() + next_review
         else:
             self.next_review = next_review
         self.save()
+
+    def undo(self):
+        if self.backup:
+            dict_to_model(Card, self.backup).save()
 
     @classmethod
     def iter_quiz(cls, **kwargs):

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "simplesrs"
-version = "0.1.0.5"
+version = "0.1.1"
 description = "Simple SRS (spaced-recognition system) mechanism and database"
 authors = ["Pacharapol Withayasakpunt <patarapolw@gmail.com>"]
 readme = "README.md"
